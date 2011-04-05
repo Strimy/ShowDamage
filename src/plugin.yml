@@ -1,0 +1,8 @@
+name: ShowDamage
+main: strimy.bukkit.plugins.showdamage.ShowDamageManager
+version: 1.0b1
+
+commands:
+    showdamage: 
+        description: Configure the ShowDamage plugin
+        usage: /showdamage enable|disable
