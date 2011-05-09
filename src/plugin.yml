@@ -1,6 +1,6 @@
 name: ShowDamage
 main: strimy.bukkit.plugins.showdamage.ShowDamageManager
-version: 1.0b2
+version: 1.0rc1
 
 commands:
     showdamage: 
