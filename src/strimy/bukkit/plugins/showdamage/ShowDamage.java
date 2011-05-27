@@ -22,6 +22,7 @@ public class ShowDamage extends JavaPlugin
 	public void onDisable() 
 	{
 		getServer().getLogger().info("[ShowDamage] Plugin disabled !");
+		Instance = null;
 	}
 
 	@Override
