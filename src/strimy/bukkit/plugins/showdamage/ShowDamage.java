@@ -1,10 +1,7 @@
 package strimy.bukkit.plugins.showdamage;
 
 import java.io.File;
-
 import org.bukkit.Server;
-import org.bukkit.event.Event;
-import org.bukkit.event.Event.Priority;
 import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -34,6 +31,6 @@ public class ShowDamage extends JavaPlugin
 		SDEntityListener listener = new SDEntityListener(this);
 
 		PluginManager pm = getServer().getPluginManager();
-		pm.registerEvent(Event.Type.ENTITY_DAMAGE, listener , Priority.Monitor, this);
+		pm.registerEvents(listener, this);
 	}
 }

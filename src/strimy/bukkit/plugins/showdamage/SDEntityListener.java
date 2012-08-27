@@ -6,11 +6,13 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityListener;
 
-public class SDEntityListener extends EntityListener  
+public class SDEntityListener implements Listener
 {
 	HashMap<Player, LastDamage> lastDamages = new HashMap<Player, LastDamage>();
 	ShowDamage plugin;
@@ -20,7 +22,7 @@ public class SDEntityListener extends EntityListener
 		this.plugin = plugin;
 	}
 	
-	@Override
+	@EventHandler(priority=EventPriority.LOWEST)
 	public void onEntityDamage(EntityDamageEvent event) 
 	{
 		if(!ShowDamageManager.Instance.isPluginEnabled())
@@ -41,7 +43,6 @@ public class SDEntityListener extends EntityListener
 					d = lastDamages.get(player);
 					if(d.getDamaged() == entity && d.getHealtLeft() == entity.getHealth())
 					{
-						super.onEntityDamage(event);
 						return;
 					}
 					lastDamages.remove(player);
@@ -60,7 +61,6 @@ public class SDEntityListener extends EntityListener
 						((newHealth < 0) ? 0 : newHealth) +" remaining)");
 			}
 		}
-		super.onEntityDamage(event);
 	}
 
 }
